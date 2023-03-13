@@ -1,5 +1,6 @@
 <%- include('../partials/header') %>
-<form action="/events/<%=id%>?_method=PUT" method="POST">
+
+<form action="/events/<%=id%>?_method=PUT" method="post">
   <label>Event Name:
     <input type="text" name="eventName" value="<%=event.eventName%>" /> </label><br />
   <label>Busker Name:
@@ -9,5 +10,8 @@
   </select> </label><br />
   <label>Event Details
     <input type="text" name="eventDetails" value="<%=event.eventDetails%>" /> </label><br />
+  <button type="submit">Update Event</button>
+  <button type="reset">Cancel</button>
 </form>
+
 <%- include('../partials/footer') %>
