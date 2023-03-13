@@ -1,0 +1,14 @@
+<%- include('../partials/header') %>
+<form action="/events/<%=id%>?_method=PUT" method="POST">
+  <label>Event Name:
+    <input disabled type="text" name="eventName" value="<%=event.eventName%>" /> </label><br />
+
+  <label>Busker Name:
+    <input disabled type="text" name="buskerName" value="<%=event.buskerName%>" /> </label><br />
+  <label>Location:
+    <input disabled type="text" name="location" value="<%=event.location%>" /> </label><br />
+  </select> </label><br />
+  <label>Event Details
+    <input disabled type="text" name="eventDetails" value="<%=event.eventDetails%>" /> </label><br />
+</form>
+<%- include('../partials/footer') %>
