@@ -1,13 +1,14 @@
 <%- include('../partials/header') %>
 
-<h2>Upcoming Events</h2>
+<h2>My Events</h2>
 <table border="1">
   <thead>
     <tr>
       <th>Event Name</th>
       <th>Busker Name</th>
       <th>Location</th>
-      <th>Event Details</th>
+      <th>Date</th>
+      <th>Event Description</th>
       <th>Action</th>
     </tr>
   </thead>
@@ -18,7 +19,8 @@
       <td><%= e.eventName %></a>
       <td><%= e.buskerName %></td>
       <td><%= e.location %></td>
-      <td><%= e.eventDetails %></td>
+      <td><%= dayjs(e.eventDate).format("DD-MMM-YYYY") %></td>
+      <td><%= e.eventDescription %></td>
       <td>
         <form action="/events/<%=e.id%>?_method=DELETE" method="post">
           <button>Delete</button>

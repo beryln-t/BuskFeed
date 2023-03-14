@@ -1,15 +1,21 @@
 <%- include('../partials/header') %>
-
+<h2>Edit Event</h2>
 <form action="/events/<%=id%>?_method=PUT" method="post">
-  <label>Event Name:
-    <input type="text" name="eventName" value="<%=event.eventName%>" /> </label><br />
-  <label>Busker Name:
-    <input type="text" name="buskerName" value="<%=event.buskerName%>" /> </label><br />
-  <label>Location:
-    <input type="text" name="location" value="<%=event.location%>" /> </label><br />
-  </select> </label><br />
-  <label>Event Details
-    <input type="text" name="eventDetails" value="<%=event.eventDetails%>" /> </label><br />
+  <label>Event Name:</label>
+  <input type="text" name="eventName" value="<%=event.eventName%>" /><br />
+
+  <label>Busker Name:</label>
+  <input type="text" name="buskerName" value="<%=event.buskerName%>" /><br />
+
+  <label>Date:</label>
+  <input type="date" name="eventDate" value="<%=event.eventDate%>" /><br />
+
+  <label>Location:</label>
+  <input type="text" name="location" value="<%=event.location%>" /><br />
+
+  <label>Event Description</label>
+  <input type="text" name="eventDescription" value="<%=event.eventDescription%>" /> <br />
+
   <button type="submit">Update Event</button>
   <button type="reset">Cancel</button>
 </form>

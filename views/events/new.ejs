@@ -1,19 +1,33 @@
 <%- include('../partials/header') %>
 <h2>Add New Event</h2>
 <form action="/events" method="POST">
-  <label>Event Name:
-    <input type="text" name="eventName" /> </label><br />
-  <label>Busker Name:
-    <input type="text" name="buskerName" /> </label><br />
-  <label>Location:
-    <select name="location">
-      <option value="*Scape">*Scape</option>
-      <option value="313@Somerset">313@Somerset</option>
-      <option value="AMK Hub">AMK Hub</option>
-    </select> </label><br />
-  <label>Event Details
-    <input type="text" name="eventDetails" /> </label><br />
+
+  <label>Event Name:</label>
+  <input type="text" name="eventName" /><br />
+
+  <label>Busker Name:</label>
+  <input type="text" name="buskerName" /><br />
+
+  <label>Date:</label>
+  <input type="date" name="eventDate" /><br />
+
+  <label>Location:</label>
+  <select name="location">
+    <option value="*Scape">*Scape</option>
+    <option value="313@Somerset">313@Somerset</option>
+    <option value="AMK Hub">AMK Hub</option>
+  </select> <br />
+
+  <label>Event Description</label>
+  <input type="text" name="eventDescription" /> <br />
+
+
+
   <button type="submit">Add Event</button>
-  <button type="reset">Cancel</button>
+  <button type="reset">Cancel</button> <br />
+
+
+
+
 </form>
 <%- include('../partials/footer') %>

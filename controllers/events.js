@@ -1,10 +1,11 @@
 const Event = require("../models/event");
+const dayjs = require("dayjs");
 
 const index = async (req, res) => {
   try {
     const id = req.params.id;
     const events = await Event.find().exec();
-    res.render("events/index", { events, id });
+    res.render("events/index", { id, events, dayjs });
   } catch (err) {
     console.error(err);
     res.status(500).send("Internal server error");
@@ -15,7 +16,7 @@ const myEvents = async (req, res) => {
   try {
     const id = req.params.id;
     const events = await Event.find().exec();
-    res.render("events/myevents", { events, id });
+    res.render("events/myevents", { events, id, dayjs });
   } catch (err) {
     console.error(err);
     res.status(500).send("Internal server error");
@@ -26,7 +27,7 @@ const show = async (req, res) => {
   try {
     const id = req.params.id;
     const event = await Event.findById(id).exec();
-    res.render("events/show", { event, id });
+    res.render("events/show", { event, id, dayjs });
   } catch (err) {
     console.error(err);
     res.status(500).send("Internal server error");

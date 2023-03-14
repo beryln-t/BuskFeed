@@ -7,21 +7,21 @@
       <th>Event Name</th>
       <th>Busker Name</th>
       <th>Location</th>
-      <th>Event Details</th>
+      <th>Date</th>
+      <th>Event Description</th>
+
     </tr>
   </thead>
   <tbody>
-    <!-- Write the line of EJS to iterate over movies using forEach -->
     <% events.forEach(e => { %>
     <tr>
       <td> <a href="/events/<%=e.id %>"><%= e.eventName %></a>
       <td><%= e.buskerName %></td>
       <td><%= e.location %></td>
-      <td><%= e.eventDetails %></td>
+      <td><%= dayjs(e.eventDate).format("DD-MMM-YYYY") %></td>
+      <td><%= e.eventDescription %></td </tr>
 
-    </tr>
-    <!-- Close the forEach using EJS here -->
-    <% }) %>
+      <% }) %>
   </tbody>
 </table>
 
