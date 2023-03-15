@@ -1,0 +1,38 @@
+<%- include('../partials/header') %>
+<h2>Edit Profiles</h2>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Busker Name</th>
+      <th>Busking Act</th>
+      <th>loeNumber</th>
+      <th>Valid From</th>
+      <th>Valid To</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% busker.forEach(b => { %>
+    <tr>
+      <td><%= b.buskerName %></a>
+      <td><%= b.buskingAct %></td>
+      <td><%= b.loeNumber%></td>
+      <td><%= dayjs(b.validFrom).format("DD-MMM-YYYY") %></td>
+      <td><%= dayjs(b.validTo).format("DD-MMM-YYYY")%></td>
+      <td>
+        <form action="/buskers/<%=b.id%>?_method=DELETE" method="post">
+          <button>Delete</button>
+        </form>
+        <form action="/buskers/<%=b.id%>/edit" method="get">
+          <button>Edit</button>
+        </form>
+      </td>
+
+    </tr>
+    <!-- Close the forEach using EJS here -->
+    <% }) %>
+  </tbody>
+</table>
+
+<%- include('../partials/footer') %>

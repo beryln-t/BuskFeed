@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 
-<h2>My Events</h2>
+<h2>Edit Events</h2>
 <table border="1">
   <thead>
     <tr>
@@ -13,8 +13,7 @@
     </tr>
   </thead>
   <tbody>
-    <!-- Write the line of EJS to iterate over movies using forEach -->
-    <% events.forEach(e => { %>
+    <% event.forEach(e => { %>
     <tr>
       <td><%= e.eventName %></a>
       <td><%= e.buskerName %></td>

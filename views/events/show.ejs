@@ -1,23 +1,21 @@
 <%- include('../partials/header') %>
 
 <h2>Event Details</h2>
-<form action="/events/<%=id%>?_method=PUT" method="POST">
 
-  <label>Event Name:</label>
-  <input disabled type="text" name="eventName" value="<%=event.eventName%>" /><br />
+<label>Event Name:</label>
+<input disabled type="text" name="eventName" value="<%=event.eventName%>" /><br />
 
-  <label>Busker Name:</label>
-  <input disabled type="text" name="buskerName" value="<%=event.buskerName%>" /> <br />
+<label>Busker Name:</label>
+<input disabled type="text" name="buskerName" value="<%=event.buskerName%>" /> <br />
 
-  <label>Location:</label>
-  <input disabled type="text" name="location" value="<%=event.location%>" /> <br />
+<label>Location:</label>
+<input disabled type="text" name="location" value="<%=event.location%>" /> <br />
 
-  <label>Date:</label>
-  <input disabled type="text" name="location" value=<%= dayjs(event.eventDate).format("DD-MMM-YYYY") %> /> <br />
+<label>Date:</label>
+<input disabled type="text" name="location" value="<%= dayjs(event.eventDate).format("DD-MMM-YYYY") %>" /> <br />
 
 
-  <label>Event Description:</label>
-  <input disabled type="text" name="eventDescription" value="<%=event.eventDescription%>" /><br />
+<label>Event Description:</label>
+<input disabled type="text" name="eventDescription" value="<%=event.eventDescription%>" /><br />
 
-</form>
 <%- include('../partials/footer') %>

@@ -1,9 +1,10 @@
 <%- include('../partials/header') %>
 
-
+<h2> All Buskers</h2>
 <ul>
-  <% buskers.forEach(b => { %>
-  <li> <%= b.buskerName %></a <% }) %> </ul>
+  <% busker.forEach(b => { %>
+  <li> <a href="/buskers/<%=b.id %>"><%= b.buskerName %></a></li>
+  <br> <% }) %>
+</ul>
 
-
-    <%- include('../partials/footer') %>
+<%- include('../partials/footer') %>

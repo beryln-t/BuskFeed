@@ -1,0 +1,24 @@
+<%- include('../partials/header') %>
+<h2>Create Profile</h2>
+<form action="/buskers" method="POST">
+
+  <label>Busker Name</label>
+  <input type="text" name="buskerName" /><br />
+
+  <label>Busking Act:</label>
+  <input type="text" name="buskingAct" /><br />
+
+  <label>LOE Number:</label>
+  <input type="text" name="loeNumber" /><br />
+
+  <label>Valid From:</label>
+  <input type="date" name="validFrom" /><br />
+
+  <label>Valid To:</label>
+  <input type="date" name="validTo" /><br />
+
+  <button type="submit">Save</button>
+  <button type="reset">Cancel</button> <br />
+
+</form>
+<%- include('../partials/footer') %>
