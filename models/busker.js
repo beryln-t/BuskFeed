@@ -5,7 +5,12 @@ const buskerSchema = new Schema(
   {
     buskerName: { type: String, required: true },
     buskingAct: { type: String, required: true },
-    loeNumber: { type: String, required: true, minLength: 8, maxLength: 8 },
+    loeNumber: {
+      type: String,
+      minLength: 8,
+      maxLength: 8,
+      required: true,
+    },
     validFrom: { type: Date, required: true },
     validTo: { type: Date, required: true, min: Date() },
   },

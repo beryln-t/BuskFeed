@@ -5,7 +5,7 @@ const eventsCtrl = require("../controllers/events");
 router.get("/new", eventsCtrl.newEvent);
 router.post("/", eventsCtrl.create);
 router.get("/", eventsCtrl.index);
-router.get("/myevents", eventsCtrl.myEvents);
+router.get("/manageevents", eventsCtrl.manage);
 router.delete("/:id", eventsCtrl.del);
 router.get("/:id", eventsCtrl.show);
 router.get("/:id/edit", eventsCtrl.edit);

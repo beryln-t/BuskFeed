@@ -9,9 +9,9 @@
 <input disabled type="text" name="loeNumber" value="<%=busker.loeNumber%>" /><br />
 
 <label>Valid From:</label>
-<input disabled type="text" name="validFrom" value="<%= dayjs(busker.validFrom).format("DD-MMM-YYYY") %>" /> <br />
+<input disabled type="text" name="validFrom" value="<%= dayjs(busker.validFrom).format('DD-MM-YYYY') %>" /> <br />
 
 <label>Valid To:</label>
-<input disabled type="text" name="validTo" value="<%= dayjs(busker.validTo).format("DD-MMM-YYYY") %>" /> <br />
+<input disabled type="text" name="validTo" value="<%= dayjs(busker.validTo).format('DD-MM-YYYY') %>" /> <br />
 
 <%- include('../partials/footer') %>

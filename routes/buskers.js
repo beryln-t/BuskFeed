@@ -5,7 +5,7 @@ const buskersCtrl = require("../controllers/buskers");
 router.get("/new", buskersCtrl.newBusker);
 router.post("/", buskersCtrl.create);
 router.get("/", buskersCtrl.index);
-router.get("/profiles", buskersCtrl.myProfile);
+router.get("/manageprofiles", buskersCtrl.profiles);
 router.delete("/:id", buskersCtrl.del);
 router.get("/:id", buskersCtrl.show);
 router.delete("/:id", buskersCtrl.del);

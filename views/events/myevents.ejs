@@ -1,5 +1,12 @@
 <%- include('../partials/header') %>
 
+
+<h2>Create New Event</h2>
+<form action="/events/new" method="get">
+  <button>Click to Add Event</button>
+</form>
+
+
 <h2>Edit Events</h2>
 <table border="1">
   <thead>
@@ -30,7 +37,7 @@
       </td>
 
     </tr>
-    <!-- Close the forEach using EJS here -->
+
     <% }) %>
   </tbody>
 </table>

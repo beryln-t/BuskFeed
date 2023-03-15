@@ -8,10 +8,10 @@
   <input type="text" name="buskerName" value="<%=event.buskerName%>" required /><br />
 
   <label>Date:</label>
-  <input type="date" name="eventDate" value="<%=event.eventDate%>" required /><br />
+  <input type="date" name="eventDate" value="<%= dayjs(event.eventDate).format('YYYY-MM-DD') %>" required /><br />
 
   <label>Location:</label>
-  <input type="text" name="location" value="<%=event.location%>" required /><br />
+  <input type=" text" name="location" value="<%=event.location%>" required /><br />
 
   <label>Event Description</label>
   <input type="text" name="eventDescription" value="<%=event.eventDescription%>" required /> <br />

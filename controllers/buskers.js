@@ -6,8 +6,8 @@ const index = async (req, res) => {
     const id = req.params.id;
     const busker = await Busker.find().exec();
     res.render("buskers/index", { busker, id });
-  } catch (err) {
-    console.error(err);
+  } catch (error) {
+    console.error(error);
     res.status(500).send("Internal server error");
   }
 };
@@ -16,19 +16,19 @@ const newBusker = async (req, res) => {
   try {
     const busker = await Busker.find();
     res.render("buskers/new", { busker });
-  } catch (err) {
-    console.error(err);
+  } catch (error) {
+    console.error(error);
     res.status(500).send("Internal server error");
   }
 };
 
-const create = async (req, res) => {
+const create = async (req, res, next) => {
   try {
     const busker = new Busker(req.body);
     const b = await busker.save();
-    res.redirect("/buskers");
+    res.redirect("/buskers/manageprofiles");
   } catch (error) {
-    res.status(500).send("Internal server error");
+    next(error);
   }
 };
 
@@ -37,8 +37,8 @@ const show = async (req, res) => {
     const id = req.params.id;
     const busker = await Busker.findById(id).exec();
     res.render("buskers/show", { busker, id, dayjs });
-  } catch (err) {
-    console.error(err);
+  } catch (error) {
+    console.error(error);
     res.status(500).send("Internal server error");
   }
 };
@@ -47,18 +47,18 @@ const del = async (req, res) => {
   try {
     const id = req.params.id;
     await Busker.findByIdAndDelete(id).exec();
-    res.redirect("/buskers/profiles");
+    res.redirect("/buskers/manageprofiles");
   } catch (error) {
     res.status(500).send("Internal server error");
   }
 };
 
-const myProfile = async (req, res) => {
+const profiles = async (req, res) => {
   try {
     const busker = await Busker.find().exec();
-    res.render("buskers/myprofile", { busker, dayjs });
-  } catch (err) {
-    console.error(err);
+    res.render("buskers/profiles", { busker, dayjs });
+  } catch (error) {
+    console.error(error);
     res.status(500).send("error");
   }
 };
@@ -68,22 +68,22 @@ const edit = async (req, res) => {
     const id = req.params.id;
     const busker = await Busker.findById(id).exec();
     res.render("buskers/edit", { busker, id, dayjs });
-  } catch (err) {
-    console.error(err);
+  } catch (error) {
+    console.error(error);
     res.status(500).send("Internal server error");
   }
 };
 
-const update = async (req, res) => {
+const update = async (req, res, next) => {
   try {
     const id = req.params.id;
-    await Busker.findByIdAndUpdate(id, req.body, {
+    const opts = { runValidators: true };
+    await Busker.findByIdAndUpdate(id, req.body, opts, {
       new: true,
     }).exec();
-    res.redirect("/buskers/profiles");
-  } catch (err) {
-    console.error(err);
-    res.status(500).send("Internal server error");
+    res.redirect("/buskers/manageprofiles");
+  } catch (error) {
+    next(error);
   }
 };
 
@@ -93,7 +93,7 @@ module.exports = {
   create,
   show,
   del,
-  myProfile,
+  profiles,
   edit,
   update,
 };
