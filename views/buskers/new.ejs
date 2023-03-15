@@ -9,7 +9,7 @@
   <input type="text" name="buskingAct" required /><br />
 
   <label>LOE Number:</label>
-  <input type="text" name="loeNumber" required /><br />
+  <input type="text" name="loeNumber" required pattern="^[a-zA-Z0-9]{8}$" oninvalid="this.setCustomValidity('Please enter a valid 8-character alphanumeric LOE number.')" oninput="this.setCustomValidity('')" title="Please enter a valid 8-character alphanumeric LOE number." /><br />
 
   <label>Valid From:</label>
   <input type="date" name="validFrom" required /><br />

@@ -2,24 +2,43 @@
 <h2>Add New Event</h2>
 <form action="/events" method="POST">
 
-  <label>Event Name:</label>
-  <input type="text" name="eventName" required /><br />
+  <div class="mb-3">
+    <label for="eventName" class="form-label">Event Name:</label>
+    <input type="text" class="form-control" id="eventName" name="eventName" required />
+  </div>
 
-  <label>Busker Name:</label>
-  <input type="text" name="buskerName" required /><br />
+  <!-- <div class="mb-3">
+    <label for="buskerName" class="form-label">Busker Name:</label>
+    <input type="text" class="form-control" id="buskerName" name="buskerName" required />
+  </div> -->
 
-  <label>Date:</label>
-  <input type="date" name="eventDate" required /><br />
+  <div class="mb-3">
+    <label for="buskerName" class="form-label">Busker Name:</label>
+    <select class="form-control" id="buskerName" name="buskerName" required>
+      <% busker.forEach(function(b) { %>
+      <option value="<%= b._id %>"><%= b.buskerName %></option>
+      <% }); %>
+    </select>
+  </div>
 
-  <label>Location:</label>
-  <input type="text" name="location" required /><br />
 
-  <label>Event Description</label>
-  <input type="text" name="eventDescription" required /> <br />
+  <div class="mb-3">
+    <label for="eventDate" class="form-label">Date:</label>
+    <input type="date" class="form-control" id="eventDate" name="eventDate" required />
+  </div>
 
+  <div class="mb-3">
+    <label for="location" class="form-label">Location:</label>
+    <input type="text" class="form-control" id="location" name="location" required />
+  </div>
 
-  <button type="submit">Add Event</button>
-  <button type="reset">Cancel</button> <br />
+  <div class="mb-3">
+    <label for="eventDescription" class="form-label">Event Description:</label>
+    <textarea class="form-control" id="eventDescription" name="eventDescription" required></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Add Event</button>
+  <button type="reset" class="btn btn-secondary">Cancel</button> <br />
 
 </form>
 <%- include('../partials/footer') %>

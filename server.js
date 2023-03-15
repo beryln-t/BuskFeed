@@ -4,6 +4,7 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var methodOverride = require("method-override");
+const session = require("express-session");
 
 require("dotenv").config();
 require("./config/database");
@@ -24,7 +25,21 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+// app.use(express.static("public"));
+app.use(
+  "/bootstrap",
+  express.static(__dirname + "/node_modules/bootstrap/dist")
+);
+
 app.use(methodOverride("_method"));
+app.use(
+  session({
+    secret: "keyboard cat",
+    resave: false,
+    saveUninitialized: true,
+    // cookiers: { secure: true },
+  })
+);
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);

@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const eventSchema = new Schema(
   {
     eventName: { type: String, required: true },
-    buskerName: String,
+    buskerName: [{ type: Schema.Types.ObjectId, ref: "Busker" }],
     location: { type: String, required: true },
     eventDate: { type: Date, required: true, min: Date() },
     eventDescription: { type: String, required: true },

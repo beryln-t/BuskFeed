@@ -1,30 +1,23 @@
 <%- include('../partials/header') %>
 
 <h2>Upcoming Events</h2>
-<table border="1">
-  <thead>
-    <tr>
-      <th>Event Name</th>
-      <th>Busker Name</th>
-      <th>Location</th>
-      <th>Date</th>
-      <th>Event Description</th>
 
-    </tr>
-  </thead>
-  <tbody>
-    <% event.forEach(e => { %>
-    <tr>
-      <td> <a href="/events/<%=e.id %>"><%= e.eventName %></a>
-      <td><%= e.buskerName %></td>
-      <td><%= e.location %></td>
-      <td><%= dayjs(e.eventDate).format("DD-MMM-YYYY") %></td>
-      <td><%= e.eventDescription %></td </tr>
-
-      <% }) %>
-  </tbody>
-</table>
-
-
+<div class="row">
+  <% event.forEach(e => { %>
+  <div class="col-md-6 col-lg-4">
+    <div class="card mb-4">
+      <div class="card-body">
+        <h5 class="card-title"><a href="/events/<%=e.id %>"><%= e.eventName %></a></h5>
+        <h6 class="card-subtitle mb-2 text-muted"><%= e.buskerName %></h6>
+        <p class="card-text"><%= e.eventDescription %></p>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><strong>Date:</strong> <%= dayjs(e.eventDate).format("DD-MMM-YYYY") %></li>
+          <li class="list-group-item"><strong>Location:</strong> <%= e.location %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <% }) %>
+</div>
 
 <%- include('../partials/footer') %>

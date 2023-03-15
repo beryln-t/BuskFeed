@@ -1,4 +1,5 @@
 const Event = require("../models/event");
+const Busker = require("../models/busker");
 const dayjs = require("dayjs");
 
 const index = async (req, res) => {
@@ -35,8 +36,10 @@ const show = async (req, res) => {
 
 const newEvent = async (req, res) => {
   try {
-    const event = await Event.find();
-    res.render("events/new", { event });
+    // const event = await Event.find().populate("buskerName");
+    const busker = await Busker.find().exec();
+    const event = await Event.find().exec();
+    res.render("events/new", { event, busker });
   } catch (error) {
     console.error(error);
     res.status(500).send("Internal server error");

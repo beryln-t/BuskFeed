@@ -1,0 +1,15 @@
+<%- include('../partials/header') %>
+<h2>Login</h2>
+
+<%=msg%>
+<form action="/users/login" method="post">
+  <fieldset>
+    <!-- <legend>Login</legend> -->
+    <label>Userid: <input name="userid" /></label>
+    <br />
+    <label>Password: <input name="password" /></label>
+    <input type="hidden" value="secret" name="what" />
+    <button>Login</button>
+  </fieldset>
+</form>
+<%- include('../partials/footer') %>
