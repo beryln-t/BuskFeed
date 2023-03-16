@@ -9,6 +9,7 @@ const buskerSchema = new Schema(
       type: String,
       minLength: 8,
       maxLength: 8,
+      unique: true,
       required: true,
     },
     validFrom: { type: Date, required: true },
