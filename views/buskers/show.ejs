@@ -1,17 +1,30 @@
 <%- include('../partials/header') %>
-<h2><%=busker.buskerName%></h2>
 
+<div class="container">
+  <h2><%=busker.buskerName%></h2>
 
-<label>Busking Act:</label>
-<input disabled type="text" name="buskingAct" value="<%=busker.buskingAct%>" /><br />
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <form>
 
-<label>LOE Number:</label>
-<input disabled type="text" name="loeNumber" value="<%=busker.loeNumber%>" /><br />
+        <div class="form-group">
+          <label>Busking Act:</label>
+          <input disabled type="text" name="buskingAct" class="form-control col-sm-8" value="<%=busker.buskingAct%>" />
+        </div>
 
-<label>Valid From:</label>
-<input disabled type="text" name="validFrom" value="<%= dayjs(busker.validFrom).format('DD-MM-YYYY') %>" /> <br />
+        <div class="form-group">
+          <label>LOE Number:</label>
+          <input disabled type="text" name="loeNumber" class="form-control col-sm-8" value="<%=busker.loeNumber%>" />
+        </div>
 
-<label>Valid To:</label>
-<input disabled type="text" name="validTo" value="<%= dayjs(busker.validTo).format('DD-MM-YYYY') %>" /> <br />
+        <div class="form-group">
+          <label>Valid From:</label>
+          <input disabled type="text" name="validFrom" class="form-control col-sm-8" value="<%= dayjs(busker.validFrom).format('DD-MM-YYYY') %>" />
+        </div>
 
-<%- include('../partials/footer') %>
+        <div class="form-group">
+          <label>Valid To:</label>
+          <input disabled type="text" name="validTo" class="form-control col-sm-8" value="<%= dayjs(busker.validTo).format('DD-MM-YYYY') %>" />
+        </div>
+
+        <%- include('../partials/footer') %>

@@ -1,21 +1,40 @@
 <%- include('../partials/header') %>
 
-<h2>Event Details</h2>
+<div class="container">
+  <h2>Event Details</h2>
 
-<label>Event Name:</label>
-<input disabled type="text" name="eventName" value="<%=event.eventName%>" /><br />
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <form>
 
-<label>Busker Name:</label>
-<input disabled type="text" name="buskerName" value="<%=event.buskerName%>" /> <br />
+        <div class="form-group">
+          <label>Event Name:</label>
+          <input disabled type="text" name="eventName" class="form-control col-sm-8" value="<%=event.eventName%>" />
+        </div>
 
-<label>Location:</label>
-<input disabled type="text" name="location" value="<%=event.location%>" /> <br />
+        <div class="form-group">
+          <label>Busker Name:</label>
+          <input disabled type="text" name="buskerName" class="form-control col-sm-8" value="<%=event.buskerName.buskerName%>" />
+        </div>
 
-<label>Date:</label>
-<input disabled type="text" name="location" value="<%= dayjs(event.eventDate).format('DD-MMM-YYYY') %>" /> <br />
+        <div class="form-group">
+          <label>Location:</label>
+          <input disabled type="text" name="location" class="form-control col-sm-8" value="<%=event.location%>" />
+        </div>
 
+        <div class="form-group">
+          <label>Date:</label>
+          <input disabled type="text" name="eventDate" class="form-control col-sm-8" value="<%= dayjs(event.eventDate).format('DD-MMM-YYYY') %>" />
+        </div>
 
-<label>Event Description:</label>
-<input disabled type="text" name="eventDescription" value="<%=event.eventDescription%>" /><br />
+        <div class="form-group">
+          <label>Event Description:</label>
+          <input disabled type="text" name="eventDescription" class="form-control col-sm-8" value="<%=event.eventDescription%>" />
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
 
 <%- include('../partials/footer') %>

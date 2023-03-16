@@ -1,23 +1,47 @@
 <%- include('../partials/header') %>
+
 <h2>Edit Event</h2>
+
 <form action="/events/<%=id%>?_method=PUT" method="POST">
-  <label>Event Name:</label>
-  <input type="text" name="eventName" value="<%=event.eventName%>" required /><br />
 
-  <label>Busker Name:</label>
-  <input type="text" name="buskerName" value="<%=event.buskerName%>" required /><br />
+  <div class="mb-3">
+    <label for="eventName" class="form-label">Event Name:</label>
+    <input type="text" class="form-control" id="eventName" name="eventName" value="<%=event.eventName%>" required />
+  </div>
 
-  <label>Date:</label>
-  <input type="date" name="eventDate" value="<%= dayjs(event.eventDate).format('YYYY-MM-DD') %>" required /><br />
+  <div class="mb-3">
+    <label for="buskerName" class="form-label">Busker Name:</label>
+    <select class="form-control" id="buskerName" name="buskerName" required>
+      <%busker.sort((a, b) => a.buskerName.localeCompare(b.buskerName));%>
+      <% busker.forEach(function(b) { %>
+      <option value="<%= b._id%>"><%= b.buskerName %></option>
 
-  <label>Location:</label>
-  <input type=" text" name="location" value="<%=event.location%>" required /><br />
+      <% }); %>
+    </select>
+  </div>
 
-  <label>Event Description</label>
-  <input type="text" name="eventDescription" value="<%=event.eventDescription%>" required /> <br />
+  <div class="mb-3">
+    <label for="eventDate" class="form-label">Date:</label>
+    <input type="date" class="form-control" id="eventDate" name="eventDate" value="<%= dayjs(event.eventDate).format('YYYY-MM-DD') %>" required />
+  </div>
 
-  <button type="submit">Save</button>
-  <button type="reset">Cancel</button>
+  <div class="mb-3">
+    <label for="location" class="form-label">Location:</label>
+    <input type="text" class="form-control" id="location" name="location" value="<%=event.location%>" required />
+  </div>
+
+
+  <div class="mb-3">
+    <label for="eventDescription" class="form-label">Event Description:</label>
+    <textarea class="form-control" id="eventDescription" name="eventDescription" required><%=event.eventDescription%></textarea>
+  </div>
+  <!-- <div class="mb-3"> 
+    <label for="eventDescription" class="form-label">Event Description:</label>
+    <input type="text" class="form-control" id="eventDescription" name="eventDescription" value="<%=event.eventDescription%>" required />
+  </div> -->
+
+  <button type="submit" class="btn btn-primary">Save</button>
+  <button type="reset" class="btn btn-secondary">Cancel</button>
 </form>
 
 <%- include('../partials/footer') %>

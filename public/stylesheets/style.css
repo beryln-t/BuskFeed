@@ -3,13 +3,25 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+
 a {
-  color: #00b7ff;
+  color: black;
+  text-decoration: none;
 }
 
 nav {
   background-color: #333;
   color: #fff;
+  text-align: center;
 }
 
 nav ul {

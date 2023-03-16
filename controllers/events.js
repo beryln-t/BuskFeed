@@ -26,7 +26,7 @@ const manage = async (req, res) => {
 const show = async (req, res) => {
   try {
     const id = req.params.id;
-    const event = await Event.findById(id).exec();
+    const event = await Event.findById(id).populate("buskerName").exec();
     res.render("events/show", { event, id, dayjs });
   } catch (error) {
     console.error(error);
@@ -68,8 +68,9 @@ const del = async (req, res) => {
 const edit = async (req, res) => {
   try {
     const id = req.params.id;
-    const event = await Event.findById(id).exec();
-    res.render("events/edit", { event, id, dayjs });
+    const busker = await Busker.find().exec();
+    const event = await Event.findById(id).populate("buskerName").exec();
+    res.render("events/edit", { event, busker, id, dayjs });
   } catch (error) {
     console.error(error);
     res.status(500).send("Internal server error");
@@ -88,6 +89,21 @@ const update = async (req, res, next) => {
     next(error);
   }
 };
+
+// const update = async (req, res, next) => {
+//   try {
+//     const id = req.params.id;
+//     const name = req.body.name;
+//     const buskerName = await Busker.find({ buskerName: name });
+//     const opts = { runValidators: true };
+//     await Event.findByIdAndUpdate(id, buskerName, req.body, opts, {
+//       new: true,
+//     }).exec();
+//     res.redirect("/events/manageevents");
+//   } catch (error) {
+//     next(error);
+//   }
+// };
 
 module.exports = {
   index,

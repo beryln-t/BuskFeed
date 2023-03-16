@@ -1,24 +1,29 @@
 <%- include('../partials/header') %>
+
 <h2>Create Profile</h2>
 <form action="/buskers" method="POST">
-
-  <label>Busker Name</label>
-  <input type="text" name="buskerName" required /><br />
-
-  <label>Busking Act:</label>
-  <input type="text" name="buskingAct" required /><br />
-
-  <label>LOE Number:</label>
-  <input type="text" name="loeNumber" required pattern="^[a-zA-Z0-9]{8}$" oninvalid="this.setCustomValidity('Please enter a valid 8-character alphanumeric LOE number.')" oninput="this.setCustomValidity('')" title="Please enter a valid 8-character alphanumeric LOE number." /><br />
-
-  <label>Valid From:</label>
-  <input type="date" name="validFrom" required /><br />
-
-  <label>Valid To:</label>
-  <input type="date" name="validTo" required /><br />
-
-  <button type="submit">Save</button>
-  <button type="reset">Cancel</button> <br />
+  <div class="mb-3">
+    <label for="buskerName" class="form-label">Busker Name:</label>
+    <input type="text" class="form-control" id="buskerName" name="buskerName" required />
+  </div>
+  <div class="mb-3">
+    <label for="buskingAct" class="form-label">Busking Act:</label>
+    <input type="text" class="form-control" id="buskingAct" name="buskingAct" required />
+  </div>
+  <div class="mb-3">
+    <label for="loeNumber" class="form-label">LOE Number:</label>
+    <input type="text" class="form-control" id="loeNumber" name="loeNumber" required pattern="^[a-zA-Z0-9]{8}$" oninvalid="this.setCustomValidity('Please enter a valid 8-character alphanumeric LOE number.')" oninput="this.setCustomValidity('')" title="Please enter a valid 8-character alphanumeric LOE number." />
+  </div>
+  <div class="mb-3">
+    <label for="validFrom" class="form-label">Valid From:</label>
+    <input type="date" class="form-control" id="validFrom" name="validFrom" required />
+  </div>
+  <div class="mb-3">
+    <label for="validTo" class="form-label">Valid To:</label>
+    <input type="date" class="form-control" id="validTo" name="validTo" required />
+  </div>
+  <button type="submit" class="btn btn-primary">Save</button>
+  <button type="reset" class="btn btn-secondary">Cancel</button>
 
 </form>
 <%- include('../partials/footer') %>

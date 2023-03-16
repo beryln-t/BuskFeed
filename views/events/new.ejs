@@ -10,6 +10,7 @@
   <div class="mb-3">
     <label for="buskerName" class="form-label">Busker Name:</label>
     <select class="form-control" id="buskerName" name="buskerName" required>
+      <%busker.sort((a, b) => a.buskerName.localeCompare(b.buskerName));%>
       <% busker.forEach(function(b) { %>
       <option value="<%= b._id%>"><%= b.buskerName %></option>
 
