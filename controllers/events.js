@@ -93,21 +93,6 @@ const update = async (req, res, next) => {
   }
 };
 
-// const update = async (req, res, next) => {
-//   try {
-//     const id = req.params.id;
-//     const name = req.body.name;
-//     const buskerName = await Busker.find({ buskerName: name });
-//     const opts = { runValidators: true };
-//     await Event.findByIdAndUpdate(id, buskerName, req.body, opts, {
-//       new: true,
-//     }).exec();
-//     res.redirect("/events/manageevents");
-//   } catch (error) {
-//     next(error);
-//   }
-// };
-
 module.exports = {
   index,
   manage,
