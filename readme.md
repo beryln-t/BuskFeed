@@ -12,21 +12,21 @@ The App consists of 3 data models- User, Busker, and Event.
 
 Each user (the administrator) can create many events and many busker profiles. The event model references the busker model in a many-to-one relationship where each busker can have many events.
 
-<p align="center"><img src="" width="50%" height="50%"> </p>
+<p align="center"><img src="https://github.com/beryln-t/project-2/blob/main/images/model.png?raw=true" width="50%" height="50%"> </p>
  <p align="center">[Model Relationship Map]</p>
 
 ## Screenshots
 
-<p align="center"><img src="" width="50%" height="50%"> </p>
+<p align="center"><img src="https://github.com/beryln-t/project-2/blob/main/images/event%20listing.png?raw=true" width="50%" height="50%"> </p>
  <p align="center">[Event Index]</p>
 
-<p align="center"><img src="" width="50%" height="50%"> </p>
+<p align="center"><img src="https://github.com/beryln-t/project-2/blob/main/images/busker%20listing.png?raw=true" width="50%" height="50%"> </p>
  <p align="center">[Busker Index]</p>
 
-<p align="center"><img src="" width="50%" height="50%"> </p>
+<p align="center"><img src="https://raw.githubusercontent.com/beryln-t/project-2/main/images/Create%20Event.png" width="50%" height="50%"> </p>
  <p align="center">[Manage Events]</p>
 
- <p align="center"><img src="" width="50%" height="50%"> </p>
+ <p align="center"><img src="https://github.com/beryln-t/project-2/blob/main/images/Manage%20Buskers.png?raw=true" width="50%" height="50%"> </p>
  <p align="center">[Manage Buskers]</p>
 
 ## Technologies Used
@@ -77,7 +77,7 @@ const login = async (req, res) => {
 
 Forms of data validation was added in both the model and view section.
 
-#### In Model
+#### [In Model]
 
 For instance, in the busker schema, the LOE Number (Letter of Endorsement) includes validators to check that the data contains exactly 8 alphanumeric characters and that LOE Numbers are not duplicated with the "unique" validator.
 
@@ -102,7 +102,7 @@ const buskerSchema = new Schema(
 );
 ```
 
-#### In View
+#### [In View]
 
 Similarly, in the view, the LOE Number has validators to check that the data contains exactly 8 alphanumeric characters before it is passed into the database.
 
@@ -129,7 +129,7 @@ Similarly, in the view, the LOE Number has validators to check that the data con
 
 User experience was also taken into consideration when building the app. For instance, both event index and busker index are sorted to optimize user experience.
 
-#### Event Index
+#### [Event Index]
 
 Events are sorted according to event date, with the latest being shown at the top of the page.
 
@@ -149,7 +149,7 @@ const index = async (req, res) => {
 };
 ```
 
-#### Busker Index
+#### [Busker Index]
 
 Buskers are sorted according to alphabetical order
 
