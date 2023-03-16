@@ -5,7 +5,7 @@ const dayjs = require("dayjs");
 const index = async (req, res) => {
   try {
     const id = req.params.id;
-    const event = await Event.find().exec();
+    const event = await Event.find().populate("buskerName").exec();
     res.render("events/index", { id, event, dayjs });
   } catch (error) {
     console.error(error);
@@ -15,7 +15,7 @@ const index = async (req, res) => {
 
 const manage = async (req, res) => {
   try {
-    const event = await Event.find().exec();
+    const event = await Event.find().populate("buskerName").exec();
     res.render("events/myevents", { event, dayjs });
   } catch (error) {
     console.error(error);
@@ -36,9 +36,8 @@ const show = async (req, res) => {
 
 const newEvent = async (req, res) => {
   try {
-    // const event = await Event.find().populate("buskerName");
-    const busker = await Busker.find().exec();
     const event = await Event.find().exec();
+    const busker = await Busker.find().exec();
     res.render("events/new", { event, busker });
   } catch (error) {
     console.error(error);
