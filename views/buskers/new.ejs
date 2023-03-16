@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 
-<h2>Create Profile</h2>
+<h2 class="custom-h2">Create Profile</h2>
 <form action="/buskers" method="POST">
   <div class="mb-3">
     <label for="buskerName" class="form-label">Busker Name:</label>
@@ -20,7 +20,7 @@
   </div>
   <div class="mb-3">
     <label for="validTo" class="form-label">Valid To:</label>
-    <input type="date" class="form-control" id="validTo" name="validTo" required />
+    <input type="date" class="form-control" id="validTo" name="validTo" required min="<%= new Date().toISOString().slice(0, 10) %>" />
   </div>
   <button type="submit" class="btn btn-primary">Save</button>
   <button type="reset" class="btn btn-secondary">Cancel</button>

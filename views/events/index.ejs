@@ -1,18 +1,18 @@
 <%- include('../partials/header') %>
 
-<h2>Upcoming Events</h2>
+<h2 class="custom-h2">Upcoming Events</h2>
 
 <div class="row">
   <% event.map((e) => { %>
   <div class="col-md-6 col-lg-4">
     <div class="card mb-4">
-      <div class="card-body">
-        <h5 class="card-title"><a href="/events/<%=e.id %>"><%= e.eventName %></a></h5>
-        <h6 class="card-subtitle mb-2 text-muted"><a href="/buskers/<%=e.buskerName._id%>"><%=e.buskerName.buskerName %></a></h6>
-        <p class=" card-text"><%= e.eventDescription %></p>
+      <div class="card-body text-left">
+        <h5 class="custom-h5" class="card-title"><a href="/events/<%=e.id %>"><%= e.eventName %></a></h5>
+        <h6 class="custom-h6" class="card-subtitle mb-2 text-muted"><a href="/buskers/<%=e.buskerName._id%>"><%=e.buskerName.buskerName %></a></h6>
         <ul class="list-group list-group-flush">
           <li class="list-group-item"><strong>Date:</strong> <%= dayjs(e.eventDate).format("DD-MMM-YYYY") %></li>
           <li class="list-group-item"><strong>Location:</strong> <%= e.location %></li>
+          <li class="list-group-item"><strong>Event Description:</strong><br /> <%= e.eventDescription %></li>
         </ul>
       </div>
     </div>

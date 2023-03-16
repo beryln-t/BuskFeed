@@ -1,15 +1,31 @@
 <%- include('../partials/header') %>
-<h2>Login</h2>
 
-<%=msg%>
-<form action="/users/login" method="post">
-  <fieldset>
-    <!-- <legend>Login</legend> -->
-    <label>Userid: <input name="userid" /></label>
-    <br />
-    <label>Password: <input name="password" /></label>
-    <input type="hidden" value="secret" name="what" />
-    <button>Login</button>
-  </fieldset>
-</form>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h2 class=custom-h2" class="text-center mb-4">Login</h2>
+
+      <% if (msg) { %>
+      <div class="alert alert-danger" role="alert">
+        <%= msg %>
+      </div>
+      <% } %>
+
+      <form action="/users/login" method="post">
+        <div class="mb-3">
+          <label for="userid" class="form-label">User ID:</label>
+          <input type="text" class="form-control" id="userid" name="userid" required />
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password:</label>
+          <input type="password" class="form-control" id="password" name="password" required />
+        </div>
+        <input type="hidden" value="secret" name="what" />
+        <div class="d-grid">
+          <button class="btn btn-primary" type="submit">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 <%- include('../partials/footer') %>

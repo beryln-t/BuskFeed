@@ -4,7 +4,7 @@ const dayjs = require("dayjs");
 const index = async (req, res) => {
   try {
     const id = req.params.id;
-    const busker = await Busker.find().exec();
+    const busker = await Busker.find().sort({ buskerName: "asc" }).exec();
     res.render("buskers/index", { busker, id });
   } catch (error) {
     console.error(error);

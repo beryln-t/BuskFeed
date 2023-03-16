@@ -6,6 +6,8 @@ var logger = require("morgan");
 var methodOverride = require("method-override");
 const session = require("express-session");
 
+const MongoStore = require("connect-mongo");
+
 require("dotenv").config();
 require("./config/database");
 
@@ -19,6 +21,22 @@ var app = express();
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
+app.set("trust proxy", 1);
+
+app.use(methodOverride("_method"));
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    store: MongoStore.create({
+      mongoUrl: process.env.DATABASE_URL,
+      collectionName: "sessions",
+      dbName: "buskfeed",
+      // cookiers: { secure: true },
+    }),
+  })
+);
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -29,16 +47,6 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(
   "/bootstrap",
   express.static(__dirname + "/node_modules/bootstrap/dist")
-);
-
-app.use(methodOverride("_method"));
-app.use(
-  session({
-    secret: "keyboard cat",
-    resave: false,
-    saveUninitialized: true,
-    // cookiers: { secure: true },
-  })
 );
 
 app.use("/", indexRouter);

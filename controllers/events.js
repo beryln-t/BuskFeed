@@ -5,7 +5,10 @@ const dayjs = require("dayjs");
 const index = async (req, res) => {
   try {
     const id = req.params.id;
-    const event = await Event.find().populate("buskerName").exec();
+    const event = await Event.find()
+      .populate("buskerName")
+      .sort({ eventDate: -1 })
+      .exec();
     res.render("events/index", { id, event, dayjs });
   } catch (error) {
     console.error(error);

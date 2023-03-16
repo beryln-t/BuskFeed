@@ -1,5 +1,5 @@
 <%- include('../partials/header') %>
-<h2>Add New Event</h2>
+<h2 class="custom-h2">Add New Event</h2>
 <form action="/events" method="POST">
 
   <div class="mb-3">
@@ -13,7 +13,6 @@
       <%busker.sort((a, b) => a.buskerName.localeCompare(b.buskerName));%>
       <% busker.forEach(function(b) { %>
       <option value="<%= b._id%>"><%= b.buskerName %></option>
-
       <% }); %>
 
     </select>
@@ -22,7 +21,7 @@
 
   <div class="mb-3">
     <label for="eventDate" class="form-label">Date:</label>
-    <input type="date" class="form-control" id="eventDate" name="eventDate" required />
+    <input type="date" class="form-control" id="eventDate" name="eventDate" required min="<%= new Date().toISOString().slice(0, 10) %>" />
   </div>
 
   <div class="mb-3">

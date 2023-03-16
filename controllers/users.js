@@ -4,15 +4,21 @@ const bcrypt = require("bcrypt");
 const saltRounds = 10;
 
 const seed = async (req, res) => {
-  const plainTextPassword = "123";
-  bcrypt.hash(plainTextPassword, saltRounds, async (err, hash) => {
-    const user = await User.create({ userid: "simon", password: hash });
+  const plainTextPassword = "87654321";
+  bcrypt.hash(plainTextPassword, saltRounds, async (error, hash) => {
+    const user = await User.create({
+      name: "Benedict",
+      userid: "benedict",
+      password: hash,
+    });
     res.send(user);
   });
 };
 
 const index = async (req, res) => {
-  const context = { msg: "1st message" };
+  const context = {
+    msg: "Welcome back, Admin! Please enter your credentials to access your account.",
+  };
   res.render("users/login", context);
 };
 
@@ -28,7 +34,7 @@ const login = async (req, res) => {
 
   const user = await User.findOne({ userid }).exec();
   if (user === null) {
-    const context = { msg: "No user" };
+    const context = { msg: "Login Unsuccessful. Please check login details." };
     res.render("users/login", context);
     return;
   }
@@ -36,26 +42,29 @@ const login = async (req, res) => {
   bcrypt.compare(password, user.password, (err, result) => {
     if (result) {
       req.session.userid = user._id;
-      res.redirect("/movies");
+      res.redirect("/events");
     } else {
-      const context = { msg: "password wrong" };
+      const context = {
+        msg: "Login Unsuccessful. Please check login details.",
+      };
       res.render("users/login", context);
     }
   });
 };
 
-const secret = (req, res) => {
-  res.send("secret");
-  // if (req.session.userid) {
-  //   res.send(req.session.userid);
-  // } else {
-  //   res.send("Sorry");
-  // }
+const logout = async (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.redirect("/users/login");
+    }
+  });
 };
 
 module.exports = {
   index,
   login,
   seed,
-  secret,
+  logout,
 };

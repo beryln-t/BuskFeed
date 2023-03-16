@@ -1,15 +1,25 @@
 const mongoose = require("mongoose");
-// Shortcut to the mongoose.Schema class
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema(
   {
-    userid: String, //* assume unique
-    password: String,
+    name: {
+      type: String,
+      required: true,
+    },
+
+    userid: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    password: {
+      type: String,
+      required: true,
+    },
   },
   {
     timestamps: true,
   }
 );
-
 module.exports = mongoose.model("User", userSchema);

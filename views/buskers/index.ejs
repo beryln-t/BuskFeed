@@ -1,11 +1,14 @@
 <%- include('../partials/header') %>
 
-<h2 class="mb-4"> All Buskers</h2>
-<div class="list-group">
-  <% busker.forEach(b => { %>
-  <a href="/buskers/<%=b.id %>" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-    <%= b.buskerName %>
-  </a>
-  <% }) %>
+<div class="container text-center">
+  <h2 class="custom-h2" class="mb-4">All Buskers</h2>
+  <div class="list-group w-50 mx-auto">
+    <% busker.forEach(b => { %>
+    <a href="/buskers/<%=b.id %>" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+      <%= b.buskerName %>
+    </a>
+    <% }) %>
+  </div>
 </div>
+
 <%- include('../partials/footer') %>

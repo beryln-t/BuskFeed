@@ -1,14 +1,14 @@
 <%- include('../partials/header') %>
 
 <div class="container">
-  <h2>Create New Profile</h2>
+  <h2 class="custom-h2">Create New Profile</h2>
   <div class="text-center mb-3">
     <form action="/buskers/new" method="get">
       <button class="btn btn-primary">Add Profile</button>
     </form>
   </div>
 
-  <h2>Edit Existing Profiles</h2>
+  <h2 class="custom-h2">Edit Existing Profiles</h2>
   <table class="table table-striped">
     <thead class="thead-dark">
       <tr>
@@ -29,11 +29,11 @@
         <td><%= dayjs(b.validFrom).format("DD-MMM-YYYY") %></td>
         <td><%= dayjs(b.validTo).format("DD-MMM-YYYY")%></td>
         <td>
-          <form action="/buskers/<%=b.id%>?_method=DELETE" method="post">
-            <button class="btn btn-danger">Delete</button>
-          </form>
           <form action="/buskers/<%=b.id%>/edit" method="get">
             <button class="btn btn-warning">Edit</button>
+          </form><br />
+          <form action="/buskers/<%=b.id%>?_method=DELETE" method="post">
+            <button class="btn btn-danger">Delete</button>
           </form>
         </td>
       </tr>
