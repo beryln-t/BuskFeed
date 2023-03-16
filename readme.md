@@ -12,21 +12,21 @@ The App consists of 3 data models- User, Busker, and Event.
 
 Each user (the administrator) can create many events and many busker profiles. The event model references the busker model in a many-to-one relationship where each busker can have many events.
 
-<p align="center"><img src="https://github.com/beryln-t/project-2/blob/main/images/model.png?raw=true" width="50%" height="50%"> </p>
+<p align="center"><img src="https://github.com/beryln-t/project-2/blob/main/images/model.png?raw=true" width="100%" height="100%"> </p>
  <p align="center">[Model Relationship Map]</p>
 
 ## Screenshots
 
-<p align="center"><img src="https://github.com/beryln-t/project-2/blob/main/images/event%20listing.png?raw=true" width="50%" height="50%"> </p>
+<p align="center"><img src="https://github.com/beryln-t/project-2/blob/main/images/event%20listing.png?raw=true" width="100%" height="100%"> </p>
  <p align="center">[Event Index]</p>
 
-<p align="center"><img src="https://github.com/beryln-t/project-2/blob/main/images/busker%20listing.png?raw=true" width="50%" height="50%"> </p>
+<p align="center"><img src="https://github.com/beryln-t/project-2/blob/main/images/busker%20listing.png?raw=true" width="100%" height="100%"> </p>
  <p align="center">[Busker Index]</p>
 
-<p align="center"><img src="https://raw.githubusercontent.com/beryln-t/project-2/main/images/Create%20Event.png" width="50%" height="50%"> </p>
+<p align="center"><img src="https://raw.githubusercontent.com/beryln-t/project-2/main/images/Create%20Event.png" width="100%" height="100%"> </p>
  <p align="center">[Manage Events]</p>
 
- <p align="center"><img src="https://github.com/beryln-t/project-2/blob/main/images/Manage%20Buskers.png?raw=true" width="50%" height="50%"> </p>
+ <p align="center"><img src="https://github.com/beryln-t/project-2/blob/main/images/Manage%20Buskers.png?raw=true" width="100%" height="100%"> </p>
  <p align="center">[Manage Buskers]</p>
 
 ## Technologies Used
