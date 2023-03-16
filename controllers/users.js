@@ -1,16 +1,11 @@
-const User = require("../models/User");
+const User = require("../models/user");
 const bcrypt = require("bcrypt");
 
 const saltRounds = 10;
 
 const seed = async (req, res) => {
-  const plainTextPassword = "87654321";
   bcrypt.hash(plainTextPassword, saltRounds, async (error, hash) => {
-    const user = await User.create({
-      name: "Benedict",
-      userid: "benedict",
-      password: hash,
-    });
+    const user = await User.create({});
     res.send(user);
   });
 };

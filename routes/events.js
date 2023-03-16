@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const eventsCtrl = require("../controllers/events");
-const User = require("../models/User");
+const User = require("../models/user");
 
 const isAuth = async (req, res, next) => {
   if (req.session.userid) {
