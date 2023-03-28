@@ -1,40 +1,47 @@
 <%- include('../partials/header') %>
 
 <div class="container">
-  <h2 class="custom-h2">Event Details</h2>
-
-  <div class="row">
-    <div class="col-md-6 offset-md-3">
-      <form>
-
-        <div class="form-group">
-          <label>Event Name:</label>
-          <input disabled type="text" name="eventName" class="form-control col-sm-8" value="<%=event.eventName%>" />
-        </div>
-
-        <div class="form-group">
-          <label>Busker Name:</label>
-          <input disabled type="text" name="buskerName" class="form-control col-sm-8" value="<%=event.buskerName.buskerName%>" />
-        </div>
-
-        <div class="form-group">
-          <label>Location:</label>
-          <input disabled type="text" name="location" class="form-control col-sm-8" value="<%=event.location%>" />
-        </div>
-
-        <div class="form-group">
-          <label>Date:</label>
-          <input disabled type="text" name="eventDate" class="form-control col-sm-8" value="<%= dayjs(event.eventDate).format('DD-MMM-YYYY') %>" />
-        </div>
-
-        <div class="form-group">
-          <label>Event Description:</label>
-          <input disabled type="text" name="eventDescription" class="form-control col-sm-8" value="<%=event.eventDescription%>" />
-        </div>
-
-      </form>
-    </div>
+  <h2 class="custom-h2">Create New Event</h2>
+  <div class="text-center mb-3">
+    <form action="/events/new" method="get">
+      <button class="btn btn-primary">Add Event</button>
+    </form>
   </div>
+
+
+  <h2 class="custom-h2">Edit Events</h2>
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th>Event Name</th>
+        <th>Busker Name</th>
+        <th>Location</th>
+        <th>Date</th>
+        <th>Event Description</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% event.map((e)  => { %>
+      <tr>
+        <td><%= e.eventName %></a>
+        <td><%= e.buskerProfile.buskerName %></td>
+        <td><%= e.location %></td>
+        <td><%= dayjs(e.eventDate).format("DD-MMM-YYYY") %></td>
+        <td><%= e.eventDescription %></td>
+        <td>
+          <form action="/events/<%= e.id%>/edit" method="get">
+            <button class="btn btn-warning">Edit</button>
+          </form> <br />
+          <form action="/events/<%=e.id%>?_method=DELETE" method="post">
+            <button class="btn btn-danger">Delete</button>
+          </form>
+
+        </td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
 </div>
 
 <%- include('../partials/footer') %>

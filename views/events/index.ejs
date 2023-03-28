@@ -8,7 +8,7 @@
     <div class="card mb-4">
       <div class="card-body text-left">
         <h5 class="custom-h5" class="card-title"><a href="/events/<%=e.id %>"><%= e.eventName %></a></h5>
-        <h6 class="custom-h6" class="card-subtitle mb-2 text-muted"><a href="/buskers/<%=e.buskerName._id%>"><%=e.buskerName.buskerName %></a></h6>
+        <h6 class="custom-h6" class="card-subtitle mb-2 text-muted"><a href="/buskers/<%=e.buskerProfile._id%>"><%=e.buskerProfile.buskerName %></a></h6>
         <ul class="list-group list-group-flush">
           <li class="list-group-item"><strong>Date:</strong> <%= dayjs(e.eventDate).format("DD-MMM-YYYY") %></li>
           <li class="list-group-item"><strong>Location:</strong> <%= e.location %></li>

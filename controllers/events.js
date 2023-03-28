@@ -6,10 +6,11 @@ const index = async (req, res) => {
   try {
     const id = req.params.id;
     const event = await Event.find()
-      .populate("buskerName")
+      .populate("buskerProfile")
       .sort({ eventDate: -1 })
       .exec();
     res.render("events/index", { id, event, dayjs });
+    // res.send({ event, dayjs });
   } catch (error) {
     console.error(error);
     res.status(500).send("Internal server error");
@@ -18,8 +19,9 @@ const index = async (req, res) => {
 
 const manage = async (req, res) => {
   try {
-    const event = await Event.find().populate("buskerName").exec();
+    const event = await Event.find().populate("buskerProfile").exec();
     res.render("events/myevents", { event, dayjs });
+    // res.send({ event, dayjs });
   } catch (error) {
     console.error(error);
     res.status(500).send("Internal server error");
@@ -29,8 +31,8 @@ const manage = async (req, res) => {
 const show = async (req, res) => {
   try {
     const id = req.params.id;
-    const event = await Event.findById(id).populate("buskerName").exec();
-    res.render("events/show", { event, id, dayjs });
+    const event = await Event.findById(id).populate("buskerProfile").exec();
+    res.render("events/show", { id, event, dayjs });
   } catch (error) {
     console.error(error);
     res.status(500).send("Internal server error");
@@ -72,8 +74,8 @@ const edit = async (req, res) => {
   try {
     const id = req.params.id;
     const busker = await Busker.find().exec();
-    const event = await Event.findById(id).populate("buskerName").exec();
-    res.render("events/edit", { event, busker, id, dayjs });
+    const event = await Event.findById(id).populate("buskerProfile").exec();
+    res.render("events/edit", { id, event, busker, dayjs });
   } catch (error) {
     console.error(error);
     res.status(500).send("Internal server error");

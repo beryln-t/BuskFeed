@@ -25,7 +25,7 @@
       <% event.map((e)  => { %>
       <tr>
         <td><%= e.eventName %></a>
-        <td><%= e.buskerName.buskerName %></td>
+        <td><%= e.buskerProfile.buskerName %></td>
         <td><%= e.location %></td>
         <td><%= dayjs(e.eventDate).format("DD-MMM-YYYY") %></td>
         <td><%= e.eventDescription %></td>
