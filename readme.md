@@ -12,7 +12,7 @@ The App consists of 3 data models- User, Busker, and Event.
 
 Each user (the administrator) can create many events and many busker profiles. The event model references the busker model in a many-to-one relationship where each busker can have many events.
 
-<p align="center"><img src="https://github.com/beryln-t/project-2/blob/main/images/model.png?raw=true" width="100%" height="100%"> </p>
+<p align="center"><img src="https://i.imgur.com/XsdVkxb.png" width="100%" height="100%"> </p>
  <p align="center">[Model Relationship Map]</p>
 
 ## Screenshots
