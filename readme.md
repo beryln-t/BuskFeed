@@ -17,16 +17,16 @@ Each user (the administrator) can create many events and many busker profiles. T
 
 ## Screenshots
 
-<p align="center"><img src="https://github.com/beryln-t/project-2/blob/main/images/event%20listing.png?raw=true" width="100%" height="100%"> </p>
+<p align="center"><img src="https://i.imgur.com/FLGxXPt.png" width="100%" height="100%"> </p>
  <p align="center">[Event Index]</p>
 
-<p align="center"><img src="https://github.com/beryln-t/project-2/blob/main/images/busker%20listing.png?raw=true" width="100%" height="100%"> </p>
+<p align="center"><img src="https://i.imgur.com/QyZI36r.png" width="100%" height="100%"> </p>
  <p align="center">[Busker Index]</p>
 
-<p align="center"><img src="https://raw.githubusercontent.com/beryln-t/project-2/main/images/Create%20Event.png" width="100%" height="100%"> </p>
+<p align="center"><img src="https://i.imgur.com/phdKIiN.png" width="100%" height="100%"> </p>
  <p align="center">[Manage Events]</p>
 
- <p align="center"><img src="https://github.com/beryln-t/project-2/blob/main/images/Manage%20Buskers.png?raw=true" width="100%" height="100%"> </p>
+ <p align="center"><img src="https://i.imgur.com/3EvVzPp.png" width="100%" height="100%"> </p>
  <p align="center">[Manage Buskers]</p>
 
 ## Technologies Used
